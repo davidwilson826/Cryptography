@@ -1,7 +1,7 @@
 """
 cryptography.py
 Author: <your name here>
-Credit: <list sources used, if any>
+Credit: http://stackoverflow.com/questions/1720421/how-to-append-list-to-second-list-concatenate-lists
 
 Assignment:
 
@@ -18,6 +18,7 @@ if process == "e":
     key = input("Key: ")
     messnum = [associations.find(x) for x in message]
     keynum = [associations.find(x) for x in key]
+    while #number of items in keynum < number in messnum+number in keynum
 elif process == "d":
     message = input("Message: ")
 elif process == "q":
