@@ -16,7 +16,8 @@ process = input("Enter e to encrypt, d to decrypt, or q to quit: ")
 if process == "e":
     message = input("Message: ")
     key = input("Key: ")
-    messnum = [for x in message associations.find(x)]
+    messnum = [associations.find(x) for x in message]
+    keynum = [associations.find(x) for x in key]
 elif process == "d":
     message = input("Message: ")
 elif process == "q":
