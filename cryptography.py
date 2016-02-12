@@ -13,9 +13,12 @@ associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .
 
 process = input("Enter e to encrypt, d to decrypt, or q to quit: ")
 
-if process == e or d:
+if process == "e":
     message = input("Message: ")
-elif process == q:
+    key = input("Key: ")
+elif process == "d":
+    message = input("Message: ")
+elif process == "q":
     print("Goodbye!")
 else:
     print("Did not understand command, try again.")
