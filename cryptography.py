@@ -15,15 +15,20 @@ process = "e"#input("Enter e to encrypt, d to decrypt, or q to quit: ")
 
 if process == "e":
     message = "David Wilson"#input("Message: ")
-    key = "hello3"#input("Key: ")
+    key = "hello"#input("Key: ")
     messnum = [associations.find(x) for x in message]
     keynum = [associations.find(x) for x in key]
-    keynumorig = keynum[:]
     print(messnum)
     print(keynum)
-    while len(keynum) < len(messnum)+len(keynumorig):
-        keynum += keynumorig
-    keynum += keynumorig[:len(messnum)-len(keynum)]
+    def evenlength(s, l):
+        sorig = s[:]
+        s *= len(l)//len(s)
+        s += sorig[:len(l)-len(s)]
+    if len(messnum) > len(keynum):
+        evenlength(keynum, messnum)
+    elif len(keynum) > len(messnum):
+        evenlength(messnum, keynum)
+    print(messnum)
     print(keynum)
     
 elif process == "d":
