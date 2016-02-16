@@ -11,14 +11,21 @@ See the detailed requirements at https://github.com/HHS-IntroProgramming/Cryptog
 """
 associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
 
-process = input("Enter e to encrypt, d to decrypt, or q to quit: ")
+process = "e"#input("Enter e to encrypt, d to decrypt, or q to quit: ")
 
 if process == "e":
-    message = input("Message: ")
-    key = input("Key: ")
+    message = "David Wilson"#input("Message: ")
+    key = "hello3"#input("Key: ")
     messnum = [associations.find(x) for x in message]
     keynum = [associations.find(x) for x in key]
-    while #number of items in keynum < number in messnum+number in keynum
+    keynumorig = keynum[:]
+    print(messnum)
+    print(keynum)
+    while len(keynum) < len(messnum)+len(keynumorig):
+        keynum += keynumorig
+    keynum += keynumorig[:len(messnum)-len(keynum)]
+    print(keynum)
+    
 elif process == "d":
     message = input("Message: ")
 elif process == "q":
