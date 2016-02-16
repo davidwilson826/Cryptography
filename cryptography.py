@@ -14,20 +14,18 @@ associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .
 process = "e"#input("Enter e to encrypt, d to decrypt, or q to quit: ")
 
 if process == "e":
-    message = "David Wilson"#input("Message: ")
-    key = "hello"#input("Key: ")
+    message = input("Message: ")
+    key = input("Key: ")
     messnum = [associations.find(x) for x in message]
     keynum = [associations.find(x) for x in key]
     print(messnum)
     print(keynum)
-    def evenlength(s, l):
-        sorig = s[:]
-        s *= len(l)//len(s)
-        s += sorig[:len(l)-len(s)]
     if len(messnum) > len(keynum):
-        evenlength(keynum, messnum)
+        keynumorig = keynum[:]
+        keynum *= len(messnum)//len(keynum)
+        keynum += keynumorig[:len(messnum)-len(keynum)]
     elif len(keynum) > len(messnum):
-        evenlength(messnum, keynum)
+        keynum = keynum[:len(messnum)]
     print(messnum)
     print(keynum)
     
