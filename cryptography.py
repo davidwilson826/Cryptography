@@ -12,34 +12,28 @@ See the detailed requirements at https://github.com/HHS-IntroProgramming/Cryptog
 """
 associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
 
-process = "d"#input("Enter e to encrypt, d to decrypt, or q to quit: ")
+process = input("Enter e to encrypt, d to decrypt, or q to quit: ")
 
 def encrypt(message, key, process):
     messnum = [associations.find(x) for x in message]
     keynum = [associations.find(x) for x in key]
-    print(messnum)
-    print(keynum)
     if len(messnum) > len(keynum):
         keynumorig = keynum[:]
         keynum *= len(messnum)//len(keynum)
         keynum += keynumorig[:len(messnum)-len(keynum)]
     elif len(keynum) > len(messnum):
         keynum = keynum[:len(messnum)]
-    print(messnum)
-    print(keynum)
     emessnum = [x+(process*keynum[messnum.index(x)]) for x in messnum]
-    print(emessnum)
     emess = ''.join([associations[x%len(associations)] for x in emessnum])
     print(emess)
 
 if process == "e":
-    message = "David Wilson"#input("Message: ")
-    key = "hello!3"#input("Key: ")
+    message = input("Message: ")
+    key = input("Key: ")
     encrypt(message, key, 1)
-    
 elif process == "d":
-    message = "KeGtr9stpDzB"#input("Message: ")
-    key = "hello!3"#input("Key: ")
+    message = input("Message: ")
+    key = input("Key: ")
     encrypt(message, key, -1)
 elif process == "q":
     print("Goodbye!")
