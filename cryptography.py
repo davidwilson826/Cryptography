@@ -28,7 +28,9 @@ if process == "e":
         keynum = keynum[:len(messnum)]
     print(messnum)
     print(keynum)
-    emess = [x+keynum[index(x)] for x in messnum]
+    emessnum = [x+keynum[messnum.index(x)] for x in messnum]
+    print(emessnum)
+    emess = ''.join([associations[x%len(associations)] for x in emessnum])
     print(emess)
     
 elif process == "d":
