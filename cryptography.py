@@ -1,6 +1,6 @@
 """
 cryptography.py
-Author: <your name here>
+Author: David Wilson
 Credit: http://stackoverflow.com/questions/1720421/how-to-append-list-to-second-list-concatenate-lists
 
 Assignment:
@@ -14,8 +14,8 @@ associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .
 process = "e"#input("Enter e to encrypt, d to decrypt, or q to quit: ")
 
 if process == "e":
-    message = input("Message: ")
-    key = input("Key: ")
+    message = "David Wilson"#input("Message: ")
+    key = "hello!3"#input("Key: ")
     messnum = [associations.find(x) for x in message]
     keynum = [associations.find(x) for x in key]
     print(messnum)
@@ -28,6 +28,8 @@ if process == "e":
         keynum = keynum[:len(messnum)]
     print(messnum)
     print(keynum)
+    emess = [x+keynum[index(x)] for x in messnum]
+    print(emess)
     
 elif process == "d":
     message = input("Message: ")
