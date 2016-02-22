@@ -12,7 +12,7 @@ See the detailed requirements at https://github.com/HHS-IntroProgramming/Cryptog
 """
 associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
 
-process = "e"#input("Enter e to encrypt, d to decrypt, or q to quit: ")
+process = "d"#input("Enter e to encrypt, d to decrypt, or q to quit: ")
 
 def encrypt(message, key, process):
     messnum = [associations.find(x) for x in message]
@@ -38,7 +38,9 @@ if process == "e":
     encrypt(message, key, 1)
     
 elif process == "d":
-    message = input("Message: ")
+    message = "KeGtr9stpDzB"#input("Message: ")
+    key = "hello!3"#input("Key: ")
+    encrypt(message, key, -1)
 elif process == "q":
     print("Goodbye!")
 else:
