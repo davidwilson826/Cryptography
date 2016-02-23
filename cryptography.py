@@ -29,7 +29,7 @@ def encrypt(message, key, process):
     emessnum = [x+(process*keynum[messnum.index(x)]) for x in messnum]
     print(emessnum)
     print(len(emessnum))
-    emess = ''.join([associations[x%len(associations)] for x in emessnum])
+    emess = ''.join([associations[x%len(associations)] for x in emessnum])#PROBLEM????
     print(emess)
 
 if process == "e":
