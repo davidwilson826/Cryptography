@@ -21,17 +21,20 @@ def encrypt(message, key, process):
         keynum = keynum*(len(messnum)//len(keynum))+keynum[:len(messnum)-len(keynum)]
     elif len(keynum) > len(messnum):
         keynum = keynum[:len(messnum)]
+    print(keynum)
+    print(messnum)
     emessnum = [x+(process*keynum[messnum.index(x)]) for x in messnum]
+    print(emessnum)
     emess = ''.join([associations[x%len(associations)] for x in emessnum])
     print(emess)
 
 if process == "e":
-    message = input("Message: ")
-    key = input("Key: ")
+    message = "David Wilson is amazing!!!"#input("Message: ")
+    key = "3million"#input("Key: ")
     encrypt(message, key, 1)
 elif process == "d":
     message = input("Message: ")
-    key = input("Key: ")
+    key = "3million"#input("Key: ")
     encrypt(message, key, -1)
 elif process == "q":
     print("Goodbye!")
