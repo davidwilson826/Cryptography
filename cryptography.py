@@ -33,12 +33,12 @@ def encrypt(message, key, process):
     print(emess)
 
 if process == "e":
-    message = "Hello!!"#input("Message: ")
-    key = "the"#input("Key: ")
+    message = "David Wilson is amazing!!!"#input("Message: ")
+    key = "3million"#input("Key: ")
     encrypt(message, key, 1)
 elif process == "d":
     message = input("Message: ")
-    key = "the"#input("Key: ")
+    key = "3million"#input("Key: ")
     encrypt(message, key, -1)
 elif process == "q":
     print("Goodbye!")
