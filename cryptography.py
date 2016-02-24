@@ -18,11 +18,12 @@ def encrypt(message, key, process):
     messnum = [associations.find(x) for x in message]
     keynum = [associations.find(x) for x in key]
     keynum = keynum*(len(messnum)//len(keynum))+keynum[:len(messnum)%len(keynum)]
+    keynum = [process*x for x in keynum]
     print(messnum)
     print(len(messnum))
     print(keynum)
     print(len(keynum))
-    emessnum = [x+(process*keynum[messnum.index(x)]) for x in messnum]
+    emessnum = [sum(x) for x in zip(messnum, keynum)]
     print(emessnum)
     print(len(emessnum))
     emess = ''.join([associations[x%len(associations)] for x in emessnum])#PROBLEM????
