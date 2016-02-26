@@ -32,7 +32,11 @@ def encrypt(message, key, process):
         else:
             emess[charnum] = associations[char]
         charnum += 1
-    emess = ''.join(emess)
+    print(emess)
+    a = "a"
+    for x in emess:
+        a += x
+    emess = a[1:]
     print(emess)
 
 if process == "e":
