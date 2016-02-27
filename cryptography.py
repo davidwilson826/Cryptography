@@ -25,16 +25,17 @@ def encrypt(message, key, process):
     print(emess)
     emess = [associations[x%len(associations)] for x in emess]
     print(emess)
-    emess = ''.join(emess)
-    print(emess)
+    for x in emess[:-1]:
+        print(x,end='')
+    print(emess[-1])
 
 if process == "e":
-    message = "ZeroDivisionError: division by zero"#input("Message: ")
-    key = "asdfg123"#input("Key: ")
+    message = "Hello, how are you?"#input("Message: ")
+    key = "qwe712345"#input("Key: ")
     encrypt(message, key, 1)
 elif process == "d":
     message = input("Message: ")
-    key = "asdfg123"#input("Key: ")
+    key = "qwe712345"#input("Key: ")
     encrypt(message, key, -1)
 elif process == "q":
     print("Goodbye!")
