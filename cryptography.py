@@ -26,7 +26,7 @@ def encrypt(message, key, process):
     emess = [associations[x%len(associations)] for x in emess]
     print(emess)
     for x in emess[:-1]:
-        print(x,end='')
+            print(x,end='')
     print(emess[-1])
 
 if process == "e":
