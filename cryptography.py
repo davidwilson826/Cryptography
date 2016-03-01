@@ -20,18 +20,17 @@ def encrypt(message, key, process):
     keynum = keynum*(len(messnum)//len(keynum))+keynum[:len(messnum)%len(keynum)]
     keynum = [process*x for x in keynum]
     emess = [sum(x) for x in zip(messnum, keynum)]
-    emess = [associations[x%len(associations)] for x in emess]
-    for x in emess[:-1]:
-        print(x,end='')
-    print(emess[-1])
+    print(emess)
+    emess = ''.join([associations[x%len(associations)] for x in emess])
+    print(emess)
 
 if process == "e":
-    message = input("Message: ")
-    key = input("Key: ")
+    message = 'How now? A rat? Dead, for a ducat, dead!'#input("Message: ")
+    key = '123456'#input("Key: ")
     encrypt(message, key, 1)
 elif process == "d":
     message = input("Message: ")
-    key = input("Key: ")
+    key = '123456'#input("Key: ")
     encrypt(message, key, -1)
 elif process == "q":
     print("Goodbye!")
@@ -39,76 +38,34 @@ else:
     print("Did not understand command, try again.")
     
 '''
-Back-up:
 
 associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
 
-process = input("Enter e to encrypt, d to decrypt, or q to quit: ")
+a = 'b"[H\>{0G+I{1(1Hb 15IH >\F3H8]32)JI95263'#input('output: ')
+b = 'How now? A rat? Dead, for a ducat, dead!'#input('message: ')
 
-def encrypt(message, key, process):
-    messnum = [associations.find(x) for x in message]
-    keynum = [associations.find(x) for x in key]
-    keynum = keynum*(len(messnum)//len(keynum))+keynum[:len(messnum)%len(keynum)]
-    keynum = [process*x for x in keynum]
-    print(messnum)
-    print(keynum)
-    emess = [sum(x) for x in zip(messnum, keynum)]
-    print(emess)
-    charnum = 0
-    while charnum < len(emess):
-        char = emess[charnum]%len(associations)
-        print(char)
-        if char == 70:
-            emess[charnum] = "\\"
-        else:
-            emess[charnum] = associations[char]
-        charnum += 1
-    print(emess)
-    emess = ''.join(emess)
-    print(emess)
+a = [associations.index(x) for x in a]
+b = [-1*associations.index(x) for x in b]
 
-if process == "e":
-    message = "ZeroDivisionError: division by zero"#input("Message: ")
-    key = "asdfg123"#input("Key: ")
-    encrypt(message, key, 1)
-elif process == "d":
-    message = input("Message: ")
-    key = "asdfg123"#input("Key: ")
-    encrypt(message, key, -1)
-elif process == "q":
-    print("Goodbye!")
-else:
-    print("Did not understand command, try again.")
-'''
-'''
-Back-up:
+print(a)
+print(b)
+
+key = [sum(x) for x in zip(a,b)]
+print(key)
+
+key = ''.join([associations[x] for x in key])
+print(key)
+
 
 associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
 
-process = input("Enter e to encrypt, d to decrypt, or q to quit: ")
+a = 'How now? A rat? Dead, for a ducat, dead!'#input('message: ')
+b = 'b"[H\>{0G+I{1(1Hb 15IH >\F3H8]32)JI95263'#input('message2: ')
 
-def encrypt(message, key, process):
-    messnum = [associations.find(x) for x in message]
-    keynum = [associations.find(x) for x in key]
-    keynum = keynum*(len(messnum)//len(keynum))+keynum[:len(messnum)%len(keynum)]
-    keynum = [process*x for x in keynum]
-    print(messnum)
-    print(keynum)
-    emess = [sum(x) for x in zip(messnum, keynum)]
-    print(emess)
-    emess = ''.join([associations[x%len(associations)] for x in emess])
-    print(emess)
+a = [associations.index(x) for x in a]
+b = [associations.index(x) for x in b]
 
-if process == "e":
-    message = "ZeroDivisionError: division by zero"#input("Message: ")
-    key = "asdfg123"#input("Key: ")
-    encrypt(message, key, 1)
-elif process == "d":
-    message = input("Message: ")
-    key = "asdfg123"#input("Key: ")
-    encrypt(message, key, -1)
-elif process == "q":
-    print("Goodbye!")
-else:
-    print("Did not understand command, try again.")
+print(a)
+print(b)
+'''
 '''
