@@ -11,9 +11,7 @@ Write and submit a program that encrypts and decrypts user data.
 See the detailed requirements at https://github.com/HHS-IntroProgramming/Cryptography/blob/master/README.md
 """
 associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
-
-process = input("Enter e to encrypt, d to decrypt, or q to quit: ")
-
+    
 def encrypt(message, key, process):
     messnum = [associations.find(x) for x in message]
     keynum = [associations.find(x) for x in key]
@@ -22,16 +20,21 @@ def encrypt(message, key, process):
     emess = [sum(x) for x in zip(messnum, keynum)]
     emess = ''.join([associations[x%len(associations)] for x in emess])
     print(emess)
+    
+process = "a"
 
-if process == "e":
-    message = input("Message: ")
-    key = input("Key: ")
-    encrypt(message, key, 1)
-elif process == "d":
-    message = input("Message: ")
-    key = input("Key: ")
-    encrypt(message, key, -1)
-elif process == "q":
-    print("Goodbye!")
-else:
-    print("Did not understand command, try again.")
+while process != "q":
+    process = input("Enter e to encrypt, d to decrypt, or q to quit: ")
+    if process != "q":
+        if process == "e":
+            message = input("Message: ")
+            key = input("Key: ")
+            encrypt(message, key, 1)
+        elif process == "d":
+            message = input("Message: ")
+            key = input("Key: ")
+            encrypt(message, key, -1)
+        else:
+            print("Did not understand command, try again.")
+    elif process == "q":
+            print("Goodbye!")
