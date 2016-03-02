@@ -21,20 +21,19 @@ def encrypt(message, key, process):
     emess = ''.join([associations[x%len(associations)] for x in emess])
     print(emess)
     
-process = "a"
+process = input("Enter e to encrypt, d to decrypt, or q to quit: ")
 
 while process != "q":
+    if process == "e":
+        message = input("Message: ")
+        key = input("Key: ")
+        encrypt(message, key, 1)
+    elif process == "d":
+        message = input("Message: ")
+        key = input("Key: ")
+        encrypt(message, key, -1)
+    else:
+        print("Did not understand command, try again.")
     process = input("Enter e to encrypt, d to decrypt, or q to quit: ")
-    if process != "q":
-        if process == "e":
-            message = input("Message: ")
-            key = input("Key: ")
-            encrypt(message, key, 1)
-        elif process == "d":
-            message = input("Message: ")
-            key = input("Key: ")
-            encrypt(message, key, -1)
-        else:
-            print("Did not understand command, try again.")
-    elif process == "q":
-            print("Goodbye!")
+    if process == "q":
+        print("Goodbye!")
